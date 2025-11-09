@@ -7,23 +7,32 @@ import { IoCreateSharp } from "react-icons/io5";
 const Navbar = () => {
   const links = (
     <>
-      <NavLink to="/" className="font-semibold text-base">
-        Home
+      <NavLink to="/" className="font-semibold text-base hover:text-secondary">
+        <li>Home</li>
       </NavLink>
-      <NavLink to="/all-Books" className="font-semibold text-base">
-        All Books
+      <NavLink
+        to="/all-Books"
+        className="font-semibold text-base hover:text-secondary"
+      >
+        <li>All Books</li>
       </NavLink>
-      <NavLink to="/add-books" className="font-semibold text-base">
-        Add Books
+      <NavLink
+        to="/add-books"
+        className="font-semibold text-base hover:text-secondary"
+      >
+        <li>Add Books</li>
       </NavLink>
-      <NavLink to="/my-books" className="font-semibold text-base">
-        My Books
+      <NavLink
+        to="/my-books"
+        className="font-semibold text-base hover:text-secondary"
+      >
+        <li>My Books</li>
       </NavLink>
     </>
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm mt-5">
+    <div className="navbar  bg-base-100 px-5 ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="pr-2 lg:hidden">
@@ -50,7 +59,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="font-bold text-xl md:text-2xl text-[#1a535c]">
+        <a className="font-black text-xl md:text-3xl text-primary">
           Books Haven
         </a>
       </div>
