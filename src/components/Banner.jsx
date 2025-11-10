@@ -4,7 +4,10 @@ import { Link } from "react-router";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Typewriter from "typewriter-effect";
 import { FaArrowRight } from "react-icons/fa";
-
+import animation1 from "../assets/Back to school!.json";
+import animation2 from "../assets/STUDENT.json";
+import animation3 from "../assets/Education edit.json";
+import Lottie from "lottie-react";
 const Banner = () => {
   return (
     <div className="relative flex justify-between h-[600px] my-10">
@@ -36,18 +39,19 @@ const Banner = () => {
             </Link>
           </div>
 
-          <div className="absolute bottom-5 left-[30%] ">
-            <DotLottieReact
-              src="https://lottie.host/2ae2504b-6779-4d0a-8935-9670e327ffd8/wxZHz4clxe.lottie"
-              style={{ width: 300 }}
+          <div className="absolute bottom-5 left-[35%] ">
+            <Lottie
+              animationData={animation2}
+              style={{ width: 200, height: 200 }}
               loop
               autoplay
             />
           </div>
 
-          <div className="absolute right-0 top-0">
-            <DotLottieReact
-              src="https://lottie.host/650e5bbe-b90f-4740-b5b1-9c1eb2a0393e/uAPNDIXrRb.lottie"
+          <div className="absolute right-5 top-0">
+            <Lottie
+              animationData={animation3}
+              style={{ width: 200, height: 200 }}
               loop
               autoplay
             />
@@ -55,10 +59,10 @@ const Banner = () => {
         </div>
 
         <div className="flex-1/2 flex items-center justify-center mr-24">
-          <DotLottieReact
-            src="https://lottie.host/29b8fe73-bcd2-435c-87cd-92a451be09a1/LNiKaz0v9y.lottie"
-            loop
+          <Lottie
+            animationData={animation1}
             style={{ width: 500, height: 500 }}
+            loop
             autoplay
           />
         </div>

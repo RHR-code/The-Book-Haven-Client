@@ -1,10 +1,15 @@
-import React from "react";
+import React, { use } from "react";
 import { FaCircleUser } from "react-icons/fa6";
 import { Link, NavLink } from "react-router";
 import { LuLogIn, LuLogOut } from "react-icons/lu";
 import { IoCreateSharp } from "react-icons/io5";
+import { AuthContext } from "../context/AuthContext";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+  const { user, userSignOut } = use(AuthContext);
+  console.log("navbar", user);
+
   const links = (
     <>
       <NavLink to="/" className="font-semibold text-base hover:text-secondary">
@@ -30,6 +35,12 @@ const Navbar = () => {
       </NavLink>
     </>
   );
+
+  const handleSignOut = () => {
+    userSignOut().then(() => {
+      toast.success("Logged Out Successful");
+    });
+  };
 
   return (
     <div className="navbar  bg-base-100 px-5 ">
@@ -67,24 +78,32 @@ const Navbar = () => {
         <ul className="flex  gap-5 menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end gap-2">
-        <div className="space-x-2 flex ">
-          <NavLink
-            to="/login"
-            className={({ isActive }) =>
-              isActive ? " btn btn-primary" : "btn btn-primary btn-outline"
-            }
-          >
-            <LuLogIn className="hidden sm:flex" /> Login
-          </NavLink>
-          <NavLink
-            to="/signup"
-            className={({ isActive }) =>
-              isActive ? "btn btn-primary" : "btn btn-primary btn-outline"
-            }
-          >
-            <IoCreateSharp className="hidden sm:flex" /> Signup
-          </NavLink>
-        </div>
+        {!user ? (
+          <div className="space-x-2 flex ">
+            <NavLink
+              to="/signin"
+              className={({ isActive }) =>
+                isActive ? " btn btn-primary" : "btn btn-primary btn-outline"
+              }
+            >
+              <LuLogIn className="hidden sm:flex" /> Login
+            </NavLink>
+            <NavLink
+              to="/signup"
+              className={({ isActive }) =>
+                isActive ? "btn btn-primary" : "btn btn-primary btn-outline"
+              }
+            >
+              <IoCreateSharp className="hidden sm:flex" /> Signup
+            </NavLink>
+          </div>
+        ) : (
+          <div>
+            <button className="btn btn-primary" onClick={handleSignOut}>
+              SignOut
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
