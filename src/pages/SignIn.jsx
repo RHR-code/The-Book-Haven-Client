@@ -93,6 +93,7 @@ const SignIn = () => {
                     )}
                   </div>
                 </div>
+                <p className="italic">Forget Password?</p>
                 <button className="btn btn-primary mt-4 font-bold text-lg">
                   LogIn
                 </button>
