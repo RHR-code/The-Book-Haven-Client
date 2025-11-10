@@ -9,6 +9,7 @@ import MainLayout from "../layout/MainLayout";
 import AllBooks from "../pages/AllBooks";
 import AddBooks from "../pages/AddBooks";
 import MyBooks from "../pages/MyBooks";
+import Signup from "../pages/SignUp";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,6 +18,8 @@ export const router = createBrowserRouter(
       <Route path="all-books" element={<AllBooks />} />
       <Route path="add-books" element={<AddBooks />} />
       <Route path="my-books" element={<MyBooks />} />
+      <Route path="signup" element={<Signup />} />
+      {/* <Route path="my-books" element={<MyBooks />} /> */}
     </Route>
   )
 );
