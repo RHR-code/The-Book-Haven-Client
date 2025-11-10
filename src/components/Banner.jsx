@@ -3,6 +3,7 @@ import BannerBG from "../assets/Shiny Overlay.svg";
 import { Link } from "react-router";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Typewriter from "typewriter-effect";
+import { FaArrowRight } from "react-icons/fa";
 
 const Banner = () => {
   return (
@@ -26,12 +27,12 @@ const Banner = () => {
             <p>Trusted by all the expert book readers</p>
             <p>One place to find all sorts of books</p>
           </div>
-          <div className="flex gap-5">
-            <Link to="/all-books" className="btn btn-primary">
-              All Books
+          <div className="flex gap-5 ">
+            <Link to="/all-books" className="btn btn-primary  font-bold ">
+              All Books <FaArrowRight />
             </Link>
-            <Link to="/add-books" className="btn btn-primary">
-              Create Books
+            <Link to="/add-books" className="btn btn-primary font-bold">
+              Create Books <FaArrowRight />
             </Link>
           </div>
 
@@ -59,9 +60,6 @@ const Banner = () => {
             loop
             style={{ width: 500, height: 500 }}
             autoplay
-            rendererSettings={{
-              preserveAspectRatio: "xMidYMid slice",
-            }}
           />
         </div>
       </div>
