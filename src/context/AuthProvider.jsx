@@ -13,13 +13,16 @@ import { auth } from "../firebase/Firebase.config";
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
   // sign up
   const userSignUp = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   // sign in
   const userSignIn = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
   // sign out
@@ -30,11 +33,13 @@ const AuthProvider = ({ children }) => {
   // sign in with google
 
   const googleSignIn = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   // user profile
   const userProfile = (profileInfo) => {
+    setLoading(true);
     return updateProfile(auth.currentUser, profileInfo);
   };
 
@@ -42,6 +47,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
     });
 
     return () => {
@@ -57,6 +63,7 @@ const AuthProvider = ({ children }) => {
     googleSignIn,
     user,
     setUser,
+    loading,
   };
 
   return (
