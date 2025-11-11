@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { FaCircleUser } from "react-icons/fa6";
 import { Link, NavLink } from "react-router";
 import { LuLogIn, LuLogOut } from "react-icons/lu";
@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 const Navbar = () => {
   const { user, userSignOut } = use(AuthContext);
   console.log("navbar", user);
-
+  const [isHover, setIsHover] = useState(false);
   const links = (
     <>
       <NavLink to="/" className="font-semibold text-base hover:text-secondary">
@@ -43,7 +43,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar  bg-base-100 px-5 ">
+    <div className="navbar  bg-base-100 px-5 mt-5">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="pr-2 lg:hidden">
@@ -98,10 +98,29 @@ const Navbar = () => {
             </NavLink>
           </div>
         ) : (
-          <div>
-            <button className="btn btn-primary" onClick={handleSignOut}>
-              SignOut
-            </button>
+          <div className="flex items-center gap-5 ">
+            <div>
+              <button className="btn btn-primary" onClick={handleSignOut}>
+                SignOut
+              </button>
+            </div>
+
+            <div className="relative">
+              <NavLink to="/myprofile">
+                <img
+                  className="w-10 h-10 rounded-full object-cover z-10"
+                  src={user.photoURL}
+                  onMouseOver={() => setIsHover(true)}
+                  onMouseOut={() => setIsHover(false)}
+                  alt=""
+                />
+              </NavLink>
+              {isHover && (
+                <p className="absolute bg-secondary/50 backdrop-blur-2xl w-[200px] right-0 rounded-full  text-center -top-7">
+                  {user.displayName}
+                </p>
+              )}
+            </div>
           </div>
         )}
       </div>
