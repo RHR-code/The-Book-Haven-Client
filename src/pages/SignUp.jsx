@@ -56,7 +56,7 @@ const Signup = () => {
     <div className="w-full">
       <div className=" flex justify-center pt-5 w-11/12 mx-auto  my-10 ">
         <div className="bg-accent w-5/12 flex flex-col items-center justify-center gap-5 rounded-l-2xl shadow-2xl ">
-          <h2 className="font-black text-5xl text-center text-base-100">
+          <h2 className="font-black text-5xl text-center text-base-100 leading-tight">
             Welcome <br /> To The Website!
           </h2>
           <p className="text-base-100 font-bold">
