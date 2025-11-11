@@ -6,7 +6,7 @@ const AllBooks = () => {
   const { data } = useLoaderData();
   return (
     <div className="my-10">
-      <h2 className="text-4xl font-bold text-primary text-center my-10">
+      <h2 className="text-4xl font-bold text-primary text-center pb-10">
         All Available Books
       </h2>
       <div>

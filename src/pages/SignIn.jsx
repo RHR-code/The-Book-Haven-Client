@@ -1,5 +1,5 @@
 import React, { use, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { FaEye, FaRegEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
@@ -7,6 +7,9 @@ import { FcGoogle } from "react-icons/fc";
 
 const SignIn = () => {
   const { user, userSignIn, setUser, googleSignIn } = use(AuthContext);
+  const { state } = useLocation();
+  console.log("from login", state);
+
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
 
@@ -15,7 +18,7 @@ const SignIn = () => {
       .then((res) => {
         setUser(res.user);
         toast.success("Successfully LogedIn");
-        navigate("/");
+        navigate(state ? state : "/");
       })
       .catch((err) => {
         toast.error(err.message);
@@ -30,7 +33,7 @@ const SignIn = () => {
     userSignIn(email, password)
       .then((res) => {
         setUser(res.user);
-        navigate("/");
+        navigate(state ? state : "/");
         toast.success("Logged In Successfully");
       })
       .catch((err) => {

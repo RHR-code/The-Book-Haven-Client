@@ -13,6 +13,7 @@ import Signup from "../pages/SignUp";
 import SignIn from "../pages/SignIn";
 import axios from "axios";
 import BookDetails from "../pages/BookDetails";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,17 +26,39 @@ export const router = createBrowserRouter(
       <Route
         path="all-books"
         loader={() => axios.get("http://localhost:3000/all-books")}
-        element={<AllBooks />}
+        element={
+          <PrivateRoute>
+            <AllBooks />
+          </PrivateRoute>
+        }
       />
       <Route
         path="book-details/:id"
         loader={({ params }) =>
           axios.get(`http://localhost:3000/book-details/${params.id}`)
         }
-        element={<BookDetails />}
+        element={
+          <PrivateRoute>
+            <BookDetails />
+          </PrivateRoute>
+        }
       />
-      <Route path="add-books" element={<AddBooks />} />
-      <Route path="my-books" element={<MyBooks />} />
+      <Route
+        path="add-books"
+        element={
+          <PrivateRoute>
+            <AddBooks />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="my-books"
+        element={
+          <PrivateRoute>
+            <MyBooks />
+          </PrivateRoute>
+        }
+      />
       <Route path="signup" element={<Signup />} />
       <Route path="signin" element={<SignIn />} />
     </Route>
