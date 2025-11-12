@@ -13,7 +13,7 @@ const AddBooks = () => {
     const title = form.title.value;
     const author = form.author.value;
     const genre = form.genre.value;
-    const rating = form.rating.value;
+    const rating = parseInt(form.rating.value);
     const summary = form.summary.value;
     const coverImage = form.coverImage.value;
     const createdAt = new Date();

@@ -6,7 +6,7 @@ const TopGenres = () => {
       <h2 className="text-4xl font-bold text-primary text-center my-10">
         Top Genres
       </h2>
-      <div className="grid grid-cols-3 gap-10 bg-base-200 p-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 bg-base-200 p-10">
         <div className="relative  flex items-center justify-center ">
           <img
             className="w-full object-cover rounded-2xl"

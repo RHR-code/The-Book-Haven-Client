@@ -60,6 +60,10 @@ const MyBooks = () => {
       console.log(data.data);
     });
   };
+  // close book
+  const handleClose = () => {
+    modalRef.current.close();
+  };
   // update book to update data from the modal
   const handleUpdateBook = (e) => {
     e.preventDefault();
@@ -279,12 +283,16 @@ const MyBooks = () => {
                     {/* close */}
                     <div>
                       <div className="">
-                        <form method="dialog">
+                        <div>
                           {/* if there is a button in form, it will close the modal */}
-                          <button className="btn btn-outline btn-primary w-full">
+                          <button
+                            type="button"
+                            onClick={handleClose}
+                            className="btn btn-outline btn-primary w-full"
+                          >
                             Close
                           </button>
-                        </form>
+                        </div>
                       </div>
                     </div>
                   </fieldset>
