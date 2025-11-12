@@ -105,16 +105,16 @@ const Navbar = () => {
               </button>
             </div>
 
-            <div className="relative">
-              <NavLink to="/myprofile">
+            <div className="relative flex items-center">
+              <button>
                 <img
-                  className="w-10 h-10 rounded-full object-cover z-10"
+                  className="w-11 h-11 rounded-full object-cover z-10"
                   src={user.photoURL}
                   onMouseOver={() => setIsHover(true)}
                   onMouseOut={() => setIsHover(false)}
                   alt=""
                 />
-              </NavLink>
+              </button>
               {isHover && (
                 <p className="absolute bg-secondary/50 backdrop-blur-2xl w-[200px] right-0 rounded-full  text-center -top-7">
                   {user.displayName}

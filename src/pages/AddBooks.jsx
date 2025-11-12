@@ -36,6 +36,7 @@ const AddBooks = () => {
       .then((data) => {
         if (data.data.insertedId) {
           toast.success("Book Added Successfully");
+          e.target.reset();
         }
       })
       .catch((err) => {

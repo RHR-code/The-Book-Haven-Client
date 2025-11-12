@@ -14,6 +14,7 @@ import SignIn from "../pages/SignIn";
 import axios from "axios";
 import BookDetails from "../pages/BookDetails";
 import PrivateRoute from "./PrivateRoute";
+import PageNotFound from "../pages/PageNotFound";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -61,6 +62,7 @@ export const router = createBrowserRouter(
       />
       <Route path="signup" element={<Signup />} />
       <Route path="signin" element={<SignIn />} />
+      <Route path="/*" element={<PageNotFound />} />
     </Route>
   )
 );

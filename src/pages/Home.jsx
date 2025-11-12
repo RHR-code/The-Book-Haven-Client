@@ -4,6 +4,8 @@ import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 import { useLoaderData } from "react-router";
 import BookCard from "../components/BookCard";
+import BookOfTheWeek from "../components/BookOfTheWeek";
+import TopGenres from "../components/TopGenres";
 
 const Home = () => {
   const { data } = useLoaderData();
@@ -23,11 +25,19 @@ const Home = () => {
           Latest Books
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-10 pb-20">
           {data.map((book) => (
             <BookCard key={book._id} book={book} ClassName="h-[300px]" />
           ))}
         </div>
+      </div>
+      {/* Book Of the Week */}
+      <div className="pb-20">
+        <BookOfTheWeek />
+      </div>
+      {/* Top Genres */}
+      <div className="pb-20">
+        <TopGenres />
       </div>
     </div>
   );

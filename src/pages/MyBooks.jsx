@@ -16,7 +16,7 @@ const MyBooks = () => {
         setBookInfo(data.data);
       });
   }, [user]);
-
+  // delete book functionality
   const handleDeleteBook = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -47,8 +47,11 @@ const MyBooks = () => {
       }
     });
   };
+  // Ref to open and close the modal
   const modalRef = useRef();
   const [book, setBook] = useState({});
+
+  // update book btn to open modal
   const handleUpdateBookBtn = (id) => {
     modalRef.current.showModal();
 
@@ -57,7 +60,7 @@ const MyBooks = () => {
       console.log(data.data);
     });
   };
-
+  // update book to update data from the modal
   const handleUpdateBook = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -84,12 +87,9 @@ const MyBooks = () => {
         console.log(data.data);
         if (data.data.modifiedCount) {
           toast.success("Book Update successfully");
-          modalRef.current.close();
           const newBookInfo = bookInfo.filter((item) => item._id !== book._id);
           setBookInfo([...newBookInfo, { ...book, ...bookData }]);
-          //           const newBookInfo = [...bookInfo,{...bookData,createdAt:book.createdAt,userName:book.userName,
-          // userEmail:book.userEmail}]
-          //             setBookInfo(newBookInfo)
+          modalRef.current.close();
         }
       })
       .catch((err) => {
@@ -173,7 +173,7 @@ const MyBooks = () => {
           className="modal modal-bottom sm:modal-middle"
         >
           <div className="modal-box">
-            <div className="rounded-b-2xl w-full  shrink-0 shadow-2xl  pt-5 border-4 border-secondary ">
+            <div className="rounded-2xl w-full  shrink-0 shadow-2xl  pt-5 border-4 border-secondary ">
               <div className="card-body">
                 <form onSubmit={handleUpdateBook}>
                   <fieldset className="fieldset flex flex-col gap-5">
@@ -275,15 +275,19 @@ const MyBooks = () => {
                     <button className="btn btn-primary mt-4 font-bold text-lg">
                       Update Book
                     </button>
+
+                    {/* close */}
+                    <div>
+                      <div className="">
+                        <form method="dialog">
+                          {/* if there is a button in form, it will close the modal */}
+                          <button className="btn btn-outline btn-primary w-full">
+                            Close
+                          </button>
+                        </form>
+                      </div>
+                    </div>
                   </fieldset>
-                </form>
-              </div>
-            </div>
-            <div>
-              <div className="">
-                <form method="dialog">
-                  {/* if there is a button in form, it will close the modal */}
-                  <button className="btn btn-outline ">Close</button>
                 </form>
               </div>
             </div>
