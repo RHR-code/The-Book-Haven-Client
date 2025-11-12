@@ -2,10 +2,11 @@ import React, { use } from "react";
 import Banner from "../components/Banner";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import BookCard from "../components/BookCard";
 import BookOfTheWeek from "../components/BookOfTheWeek";
 import TopGenres from "../components/TopGenres";
+import { FaArrowRight } from "react-icons/fa";
 
 const Home = () => {
   const { data } = useLoaderData();
@@ -29,6 +30,11 @@ const Home = () => {
           {data.map((book) => (
             <BookCard key={book._id} book={book} ClassName="h-[300px]" />
           ))}
+        </div>
+        <div className="flex justify-center">
+          <Link to="/all-books" className="btn btn-primary  font-bold w-40">
+            All Books <FaArrowRight />
+          </Link>
         </div>
       </div>
       {/* Book Of the Week */}

@@ -5,7 +5,7 @@ import { LuLogIn, LuLogOut } from "react-icons/lu";
 import { IoCreateSharp } from "react-icons/io5";
 import { AuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
-
+import { Tooltip } from "react-tooltip";
 const Navbar = () => {
   const { user, userSignOut } = use(AuthContext);
   console.log("navbar", user);
@@ -14,16 +14,10 @@ const Navbar = () => {
     localStorage.setItem("theme", theme);
     const html = document.querySelector("html");
     html.setAttribute("data-theme", theme);
-    // if (theme === "light") {
-    //   html.setAttribute("data-theme",theme)
-    // }else{
-    //   html.setAttribute("data-theme",theme)
-    // }
   }, [theme]);
   const handleTheme = (checked) => {
     checked ? setTheme("dark") : setTheme("light");
   };
-  const [isHover, setIsHover] = useState(false);
   const links = (
     <>
       <NavLink to="/" className="font-semibold text-base hover:text-secondary">
@@ -57,7 +51,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar  bg-base-100 px-5 mt-5">
+    <div className="navbar  bg-base-100 px-5 mt-5 shadow">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="pr-2 lg:hidden">
@@ -92,13 +86,15 @@ const Navbar = () => {
         <ul className="flex  gap-5 menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end gap-2">
-        <input
-          onChange={(e) => {
-            handleTheme(e.target.checked);
-          }}
-          type="checkbox"
-          className="toggle toggle-success "
-        />
+        <a data-tooltip-id="my-tooltip" data-tooltip-content={theme}>
+          <input
+            onChange={(e) => {
+              handleTheme(e.target.checked);
+            }}
+            type="checkbox"
+            className="toggle toggle-success "
+          />
+        </a>
         {!user ? (
           <div className="space-x-2 flex ">
             <NavLink
@@ -127,20 +123,19 @@ const Navbar = () => {
             </div>
 
             <div className="relative flex items-center">
-              <button>
-                <img
-                  className="w-11 h-11 rounded-full object-cover z-10"
-                  src={user.photoURL}
-                  onMouseOver={() => setIsHover(true)}
-                  onMouseOut={() => setIsHover(false)}
-                  alt=""
-                />
-              </button>
-              {isHover && (
-                <p className="absolute bg-secondary/50 backdrop-blur-2xl w-[200px] right-0 rounded-full  text-center -top-7">
-                  {user.displayName}
-                </p>
-              )}
+              <a
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content={user.displayName}
+              >
+                <button>
+                  <img
+                    className="w-11 h-11 rounded-full object-cover z-10"
+                    src={user.photoURL}
+                    alt=""
+                  />
+                </button>
+              </a>
+              <Tooltip place="top-end" id="my-tooltip" />
             </div>
           </div>
         )}

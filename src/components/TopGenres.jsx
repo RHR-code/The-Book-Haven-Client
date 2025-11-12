@@ -3,7 +3,7 @@ import React from "react";
 const TopGenres = () => {
   return (
     <div>
-      <h2 className="text-4xl font-bold text-primary text-center my-10">
+      <h2 className="text-4xl font-bold text-primary text-center ">
         Top Genres
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10  p-10">
