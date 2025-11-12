@@ -14,8 +14,8 @@ const Banner = () => {
       <img src={BannerBG} alt="" />
 
       <div className="absolute top-0 flex items-center  w-full h-full p-10 ">
-        <div className=" text-base-100 flex-1/2 ">
-          <h1 className="text-7xl font-bold leading-tight ">
+        <div className=" text-white flex-1/2 ">
+          <h1 className="text-7xl font-bold leading-tight dark:text-white ">
             The Ultimate <br />
             <Typewriter
               options={{
@@ -26,7 +26,7 @@ const Banner = () => {
             />
             For Books
           </h1>
-          <div className="text-lg font-semibold text-base-100/80 py-5 ">
+          <div className="text-lg font-semibold text-white/80 py-5 ">
             <p>Trusted by all the expert book readers</p>
             <p>One place to find all sorts of books</p>
           </div>

@@ -10,6 +10,11 @@
   --color-base-100: white;
   --color-base-200: #f7fff7;
 }
+@plugin "daisyui" {
+  themes: winter --default, night --prefersdark;
+}
+
+@custom-variant dark (&:where([data-theme=night], [data-theme=night] *));
 
 a.active li {
   @apply text-secondary;

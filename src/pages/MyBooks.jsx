@@ -71,7 +71,7 @@ const MyBooks = () => {
     const title = form.title.value;
     const author = form.author.value;
     const genre = form.genre.value;
-    const rating = form.rating.value;
+    const rating = parseFloat(form.rating.value);
     const summary = form.summary.value;
     const coverImage = form.coverImage.value;
     const updatedAt = new Date();

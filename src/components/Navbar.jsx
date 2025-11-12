@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { FaCircleUser } from "react-icons/fa6";
 import { Link, NavLink } from "react-router";
 import { LuLogIn, LuLogOut } from "react-icons/lu";
@@ -9,6 +9,20 @@ import toast from "react-hot-toast";
 const Navbar = () => {
   const { user, userSignOut } = use(AuthContext);
   console.log("navbar", user);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    // if (theme === "light") {
+    //   html.setAttribute("data-theme",theme)
+    // }else{
+    //   html.setAttribute("data-theme",theme)
+    // }
+  }, [theme]);
+  const handleTheme = (checked) => {
+    checked ? setTheme("dark") : setTheme("light");
+  };
   const [isHover, setIsHover] = useState(false);
   const links = (
     <>
@@ -78,6 +92,13 @@ const Navbar = () => {
         <ul className="flex  gap-5 menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end gap-2">
+        <input
+          onChange={(e) => {
+            handleTheme(e.target.checked);
+          }}
+          type="checkbox"
+          className="toggle toggle-success "
+        />
         {!user ? (
           <div className="space-x-2 flex ">
             <NavLink
