@@ -19,12 +19,16 @@ const BookDetails = () => {
 
   return (
     <>
-      <div className="px-10 my-10">
-        <div className="flex items-center">
-          <div className="flex-1/2 flex bg-secondary/20 justify-center items-center min-h-[500px] border-2 border-secondary rounded-l-2xl">
-            <img className="h-[400px] shadow-2xl" src={coverImage} alt="" />
+      <div className="md:px-10 px-5 my-10">
+        <div className="flex items-center flex-col lg:flex-row gap-5 lg:gap-0">
+          <div className="md:flex-1/2 w-full flex bg-secondary/20 justify-center items-center min-h-[500px] border-2 border-secondary rounded-2xl md:rounded-l-2xl">
+            <img
+              className="md:h-[400px] h-[300px] shadow-2xl"
+              src={coverImage}
+              alt=""
+            />
           </div>
-          <div className="flex-1/2 flex flex-col gap-5 border-2 border-secondary min-h-[500px] justify-center p-10 border-l-0 rounded-r-2xl">
+          <div className="md:flex-1/2 w-full flex flex-col gap-5 border-2 border-secondary min-h-[500px] justify-center p-5 md:p-10 lg:border-l-0 rounded-2xl md:rounded-r-2xl">
             <h1 className="font-bold text-primary text-4xl">{title}</h1>
             <h3 className="font-semibold">{author}</h3>
             <p className="font-semibold flex items-center gap-2">
@@ -41,7 +45,7 @@ const BookDetails = () => {
                 </span>
               ))}
             </p>
-            <div className="flex justify-between font-bold">
+            <div className="flex md:flex-row flex-col justify-between font-bold">
               <p>{userName}</p>
               <p>{userEmail}</p>
             </div>

@@ -37,9 +37,9 @@ const Comment = () => {
       });
   };
   return (
-    <div className="mb-20 ">
-      <div className="bg-base-200 max-w-3xl mx-auto p-10 border-2 border-secondary rounded-2xl ">
-        <h2 className="text-4xl font-bold text-primary text-center my-10">
+    <div className="mb-20 px-5">
+      <div className="bg-base-200 max-w-3xl mx-auto p-5 lg:p-10 border-2 border-secondary rounded-2xl ">
+        <h2 className="md:text-4xl text-3xl font-bold text-primary text-center my-10">
           Leave A Comment
         </h2>
         <div>
@@ -48,7 +48,7 @@ const Comment = () => {
             className="flex flex-col items-center gap-5 mb-5"
           >
             <textarea
-              className="border-2 p-5 rounded-2xl bg-base-100"
+              className="border-2 p-5 w-full rounded-2xl bg-base-100"
               name="comment"
               cols="60"
               rows="3"
@@ -61,7 +61,7 @@ const Comment = () => {
         {comment.map((data) => (
           <div
             key={data._id}
-            className="space-y-5 bg-base-100 border-2 rounded-2xl  w-2xl p-10 mx-auto mb-5"
+            className="space-y-5 bg-base-100 border-2 rounded-2xl w-full md:w-2xl p-5 md:p-10 mx-auto mb-5"
           >
             <div className="flex items-center gap-5">
               <img
