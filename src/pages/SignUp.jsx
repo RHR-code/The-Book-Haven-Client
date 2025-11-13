@@ -61,7 +61,7 @@ const Signup = () => {
           </h2>
           <p className="text-white font-bold">If you already have an account</p>
           <p className="text-base-100 text-base">
-            <Link to="/login" className="btn btn-primary px-10">
+            <Link to="/signin" className="btn btn-primary px-10">
               Login
             </Link>
           </p>

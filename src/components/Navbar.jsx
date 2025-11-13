@@ -8,7 +8,6 @@ import toast from "react-hot-toast";
 import { Tooltip } from "react-tooltip";
 const Navbar = () => {
   const { user, userSignOut } = use(AuthContext);
-  console.log("navbar", user);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -88,6 +87,7 @@ const Navbar = () => {
       <div className="navbar-end gap-2">
         <a data-tooltip-id="my-tooltip" data-tooltip-content={theme}>
           <input
+            defaultChecked={theme === "light" ? false : true}
             onChange={(e) => {
               handleTheme(e.target.checked);
             }}
