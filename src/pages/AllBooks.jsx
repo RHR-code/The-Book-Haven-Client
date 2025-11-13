@@ -1,30 +1,36 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router";
+// import { useLoaderData } from "react-router";
 import BookCard from "../components/BookCard";
 import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const AllBooks = () => {
-  const { data } = useLoaderData();
-  const [books, setBooks] = useState(data);
+  // const { data } = useLoaderData();
+  const [books, setBooks] = useState([]);
   const [sort, setSort] = useState("Sort By Rating");
-  console.log(sort);
+  const axiosSecure = useAxiosSecure();
+  useEffect(() => {
+    axiosSecure.get("/all-books").then((data) => {
+      setBooks(data.data);
+    });
+  }, [axiosSecure]);
   useEffect(() => {
     if (sort === "Low To High") {
-      axios
+      axiosSecure
         .get("http://localhost:3000/all-books/sort-low-to-high")
         .then((data) => {
           setBooks(data.data);
         });
     } else if (sort === "High To Low") {
-      axios
+      axiosSecure
         .get("http://localhost:3000/all-books/sort-high-to-low")
         .then((data) => {
           setBooks(data.data);
         });
     } else {
-      setBooks(data);
+      setBooks(books);
     }
-  }, [data, sort]);
+  }, [books, sort, axiosSecure]);
   return (
     <div className="my-10">
       <h2 className="text-4xl font-bold text-primary text-center pb-10">

@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
-import { useLoaderData } from "react-router";
+import { useParams } from "react-router";
 import Comment from "../components/Comment";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const BookDetails = () => {
-  const { data } = useLoaderData();
+  const [data, setData] = useState({});
+  const axiosSecure = useAxiosSecure();
+
+  const { id } = useParams();
+  useEffect(() => {
+    axiosSecure
+      .get(`/book-details/${id}`)
+      .then((data) => {
+        setData(data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [axiosSecure, id]);
+
   const {
     author,
     coverImage,
@@ -15,7 +30,6 @@ const BookDetails = () => {
     userEmail,
     userName,
   } = data;
-  console.log(data);
 
   return (
     <>
@@ -38,7 +52,7 @@ const BookDetails = () => {
             <p>{summary}</p>
             <p className="font-bold space-x-1">
               {" "}
-              {genre.split("/").map((gen, index) => (
+              {genre?.split("/").map((gen, index) => (
                 <span key={index} className="badge badge-soft badge-primary">
                   {" "}
                   {gen}

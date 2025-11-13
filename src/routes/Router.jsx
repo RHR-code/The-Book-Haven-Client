@@ -15,18 +15,19 @@ import axios from "axios";
 import BookDetails from "../pages/BookDetails";
 import PrivateRoute from "./PrivateRoute";
 import PageNotFound from "../pages/PageNotFound";
+import instance from "../hooks/useAxiosInstance";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route to="/" element={<MainLayout />}>
       <Route
         index={true}
-        loader={() => axios.get("http://localhost:3000/latest-books")}
+        loader={() => instance.get("/latest-books")}
         element={<Home />}
       />
       <Route
         path="all-books"
-        loader={() => axios.get("http://localhost:3000/all-books")}
+        // loader={() => instance.get("/all-books")}
         element={
           <PrivateRoute>
             <AllBooks />
@@ -35,9 +36,7 @@ export const router = createBrowserRouter(
       />
       <Route
         path="book-details/:id"
-        loader={({ params }) =>
-          axios.get(`http://localhost:3000/book-details/${params.id}`)
-        }
+        // loader={({ params }) => instance.get(`/book-details/${params.id}`)}
         element={
           <PrivateRoute>
             <BookDetails />

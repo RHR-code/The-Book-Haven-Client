@@ -2,16 +2,18 @@ import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 import { useParams } from "react-router";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const Comment = () => {
   const { user } = use(AuthContext);
   const { id } = useParams();
   const [comment, setComment] = useState([]);
+  const axiosSecure = useAxiosSecure();
   useEffect(() => {
-    axios.get(`http://localhost:3000/comment/${id}`).then((data) => {
+    axiosSecure.get(`/comment/${id}`).then((data) => {
       setComment(data.data);
     });
-  }, [id]);
+  }, [id, axiosSecure]);
 
   const handleAddComment = (e) => {
     e.preventDefault();
@@ -23,18 +25,14 @@ const Comment = () => {
       displayName: user.displayName,
     };
 
-    axios
-      .post("http://localhost:3000/add-comment", commentInfo)
-      .then((data) => {
-        console.log(data.data);
-        if (data.data.insertedId) {
-          commentInfo._id = data.data.insertedId;
-          console.log(data.data.insertedId, comment);
+    axiosSecure.post("/add-comment", commentInfo).then((data) => {
+      if (data.data.insertedId) {
+        commentInfo._id = data.data.insertedId;
 
-          setComment([...comment, commentInfo]);
-          e.target.reset();
-        }
-      });
+        setComment([...comment, commentInfo]);
+        e.target.reset();
+      }
+    });
   };
   return (
     <div className="mb-20 px-5">

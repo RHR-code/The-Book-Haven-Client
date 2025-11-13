@@ -4,18 +4,17 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import UpdateModal from "../components/UpdateModal";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyBooks = () => {
   const { user } = use(AuthContext);
+  const axiosSecure = useAxiosSecure();
   const [bookInfo, setBookInfo] = useState([]);
   useEffect(() => {
-    axios
-      .get(`http://localhost:3000/all-books?email=${user?.email}`)
-      .then((data) => {
-        console.log(data.data);
-        setBookInfo(data.data);
-      });
-  }, [user]);
+    axiosSecure.get(`/all-books?email=${user?.email}`).then((data) => {
+      setBookInfo(data.data);
+    });
+  }, [user, axiosSecure]);
   // delete book functionality
   const handleDeleteBook = (id) => {
     Swal.fire({
@@ -28,8 +27,8 @@ const MyBooks = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
-          .delete(`http://localhost:3000/delete-book/${id}`)
+        axiosSecure
+          .delete(`/delete-book/${id}`)
           .then((data) => {
             if (data.data.deletedCount) {
               const newBookInfo = bookInfo.filter((book) => book._id !== id);
@@ -49,15 +48,14 @@ const MyBooks = () => {
   };
   // Ref to open and close the modal
   const modalRef = useRef();
-  const [book, setBook] = useState({});
 
+  const [book, setBook] = useState({});
   // update book btn to open modal
   const handleUpdateBookBtn = (id) => {
     modalRef.current.showModal();
 
-    axios.get(`http://localhost:3000/book-details/${id}`).then((data) => {
+    axiosSecure.get(`/book-details/${id}`).then((data) => {
       setBook(data.data);
-      console.log(data.data);
     });
   };
   // close book
@@ -84,15 +82,18 @@ const MyBooks = () => {
       coverImage,
       updatedAt,
     };
-
-    axios
-      .patch(`http://localhost:3000/update-book/${book._id}`, bookData)
+    axiosSecure
+      .patch(`/update-book/${book._id}`, bookData)
       .then((data) => {
-        console.log(data.data);
         if (data.data.modifiedCount) {
           toast.success("Book Update successfully");
           const newBookInfo = bookInfo.filter((item) => item._id !== book._id);
-          setBookInfo([...newBookInfo, { ...book, ...bookData }]);
+
+          bookData._id = book._id;
+          bookData.userName = user.displayName;
+          bookData.userEmail = user.email;
+          setBookInfo([bookData, ...newBookInfo]);
+
           modalRef.current.close();
         }
       })
@@ -179,7 +180,7 @@ const MyBooks = () => {
           <div className="modal-box">
             <div className="rounded-2xl w-full  shrink-0 shadow-2xl  pt-5 border-4 border-secondary ">
               <div className="card-body">
-                <form onSubmit={handleUpdateBook}>
+                <form key={book._id} onSubmit={handleUpdateBook}>
                   <fieldset className="fieldset flex flex-col gap-5">
                     {/* title&author */}
                     <div className="flex gap-5">

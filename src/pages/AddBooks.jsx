@@ -2,11 +2,11 @@ import axios from "axios";
 import React, { use } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../context/AuthContext";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const AddBooks = () => {
   const { user } = use(AuthContext);
-  console.log(user);
-
+  const axiosSecure = useAxiosSecure();
   const handleAddBook = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -31,8 +31,8 @@ const AddBooks = () => {
       userEmail,
     };
 
-    axios
-      .post("http://localhost:3000/add-books", bookInfo)
+    axiosSecure
+      .post("/add-books", bookInfo)
       .then((data) => {
         if (data.data.insertedId) {
           toast.success("Book Added Successfully");
