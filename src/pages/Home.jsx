@@ -23,11 +23,11 @@ const Home = () => {
       </div>
       {/* latest books */}
       <div className="pb-20">
-        <h2 className="text-4xl font-bold text-primary text-center my-10">
+        <h2 className="md:text-4xl text-3xl font-bold text-primary text-center my-10">
           Latest Books
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-10 pb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-5 md:px-10 pb-20">
           {data.map((book) => (
             <BookCard key={book._id} book={book} ClassName="h-[300px]" />
           ))}

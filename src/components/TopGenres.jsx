@@ -3,10 +3,10 @@ import React from "react";
 const TopGenres = () => {
   return (
     <div>
-      <h2 className="text-4xl font-bold text-primary text-center ">
+      <h2 className="md:text-4xl text-3xl  font-bold text-primary text-center ">
         Top Genres
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10  p-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10  p-10">
         <div className="relative  flex items-center justify-center ">
           <img
             className="w-full object-cover rounded-2xl"
