@@ -42,21 +42,19 @@ const SignIn = () => {
   };
   return (
     <div className="w-full">
-      <div className=" flex justify-center pt-5 w-11/12 mx-auto  my-10 ">
-        <div className="bg-accent w-5/12 flex flex-col items-center justify-center gap-5 rounded-l-2xl shadow-2xl ">
-          <h2 className="font-black text-5xl text-center text-base-100 leading-tight">
+      <div className=" flex flex-col md:flex-row justify-center pt-5 w-11/12 mx-auto  my-10 gap-5 md:gap-0">
+        <div className="bg-accent  md:w-5/12 flex flex-col items-center justify-center gap-5 rounded-2xl md:rounded-l-2xl shadow-2xl p-5 md:p-0">
+          <h2 className="font-black lg:text-5xl text-4xl   text-center text-white leading-tight">
             Welcome <br /> To Sign In Page!
           </h2>
-          <p className="text-base-100 font-bold">
-            If you Don't have an account
-          </p>
+          <p className="text-white font-bold">If you Don't have an account</p>
           <p className="text-base-100 text-base">
             <Link to="/signup" className="btn btn-primary px-10">
               SignUp
             </Link>
           </p>
         </div>
-        <div className="card  w-7/12 max-w-2xl shrink-0 shadow-2xl  md:px-10 rounded-r-2xl pt-5 border-4 border-secondary border-l-0 py-10">
+        <div className="card  md:w-7/12 max-w-2xl shrink-0 shadow-2xl  lg:px-10 rounded-2xl md:rounded-r-2xl pt-5 border-4 border-secondary md:border-l-0 py-10">
           <div className="card-body">
             <h1 className="text-secondary font-bold text-4xl text-center">
               User LogIn

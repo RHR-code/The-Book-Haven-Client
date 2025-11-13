@@ -20,12 +20,12 @@ const BookOfTheWeek = () => {
 
         <div className="flex-1/2 flex items-center justify-center ">
           <img
-            className="-mr-5 z-10 shadow-2xl w-[150px] lg:w-full md:w-[200px]"
+            className="-mr-5 z-10 shadow-2xl w-[150px] lg:w-[270px] md:w-[200px]"
             src="https://images.booksense.com/images/041/531/9780060531041.jpg"
             alt=""
           />
           <img
-            className="lg:w-[270px] mt-10 w-[150px] md:w-[200px] "
+            className="lg:w-[270px] mt-10 w-[150px] md:w-[200px]"
             src="https://s21618.pcdn.co/wp-content/uploads/2016/12/100_Years_First_Ed_Hi_Res-768x1153.jpg"
             alt=""
           />

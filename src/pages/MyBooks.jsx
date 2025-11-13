@@ -102,7 +102,7 @@ const MyBooks = () => {
   };
   return (
     <>
-      <div className="px-10">
+      <div className="px-10 my-20">
         <h1 className="font-bold text-4xl text-center py-10 text-primary">
           All My Books
         </h1>
@@ -147,13 +147,13 @@ const MyBooks = () => {
                       <div className="flex flex-col gap-2">
                         <button
                           onClick={() => handleDeleteBook(book._id)}
-                          className="badge badge-outline badge-error hover:badge-soft cursor-pointer"
+                          className="badge badge-outline badge-error hover:badge-soft cursor-pointer w-30"
                         >
                           Delete Book
                         </button>
                         <button
                           onClick={() => handleUpdateBookBtn(book._id)}
-                          className="badge badge-outline badge-success hover:badge-soft cursor-pointer"
+                          className="badge badge-outline badge-success hover:badge-soft cursor-pointer w-30 "
                         >
                           Update Book
                         </button>

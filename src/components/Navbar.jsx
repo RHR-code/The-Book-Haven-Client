@@ -101,8 +101,8 @@ const Navbar = () => {
               to="/signin"
               className={({ isActive }) =>
                 isActive
-                  ? " md:btn btn-primary text-primary"
-                  : "md:btn btn-primary btn-outline"
+                  ? " md:btn btn-primary text-primary md:text-white"
+                  : "md:btn btn-primary btn-outline  "
               }
             >
               <LuLogIn className="hidden sm:flex" /> Login

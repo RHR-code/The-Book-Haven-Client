@@ -15,7 +15,7 @@ const UpdateModal = ({ modalRef }) => {
               <form>
                 <fieldset className="fieldset flex flex-col gap-5">
                   {/* title&author */}
-                  <div className="flex gap-5">
+                  <div className="flex  gap-5">
                     {/* title */}
                     <div className="flex-1/2 space-y-5">
                       <label className="label text-secondary text-xl font-semibold">
