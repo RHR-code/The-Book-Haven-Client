@@ -47,7 +47,7 @@ const AddBooks = () => {
     <div className="w-full">
       <div className=" flex flex-col justify-center pt-5 w-11/12 mx-auto  my-10 ">
         <div className="bg-accent  flex flex-col items-center justify-center gap-5 rounded-t-2xl py-10 ">
-          <h2 className="font-black text-5xl text-center text-white leading-tight">
+          <h2 className="font-black md:text-5xl text-3xl text-center text-white leading-tight">
             Welcome <br /> Add Your Book!
           </h2>
         </div>
@@ -56,7 +56,7 @@ const AddBooks = () => {
             <form onSubmit={handleAddBook}>
               <fieldset className="fieldset flex flex-col gap-5">
                 {/* title&author */}
-                <div className="flex gap-5">
+                <div className="flex flex-col md:flex-row gap-5">
                   {/* title */}
                   <div className="flex-1/2 space-y-5">
                     <label className="label text-secondary text-xl font-semibold">
@@ -86,7 +86,7 @@ const AddBooks = () => {
                   </div>
                 </div>
                 {/* genre&rating */}
-                <div className="flex gap-5 ">
+                <div className="flex flex-col md:flex-row gap-5 ">
                   {/* Genre */}
                   <div className="flex-1/2 space-y-5">
                     <label className="label text-secondary text-xl font-semibold">
