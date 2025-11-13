@@ -51,7 +51,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar  bg-base-100 px-5 mt-5 shadow">
+    <div className="navbar  bg-base-200 px-5 pt-5 shadow">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="pr-2 lg:hidden">
@@ -100,7 +100,9 @@ const Navbar = () => {
             <NavLink
               to="/signin"
               className={({ isActive }) =>
-                isActive ? " btn btn-primary" : "btn btn-primary btn-outline"
+                isActive
+                  ? " md:btn btn-primary text-primary"
+                  : "md:btn btn-primary btn-outline"
               }
             >
               <LuLogIn className="hidden sm:flex" /> Login
@@ -108,7 +110,9 @@ const Navbar = () => {
             <NavLink
               to="/signup"
               className={({ isActive }) =>
-                isActive ? "btn btn-primary" : "btn btn-primary btn-outline"
+                isActive
+                  ? "md:btn btn-primary text-primary md:text-white"
+                  : "md:btn btn-primary btn-outline"
               }
             >
               <IoCreateSharp className="hidden sm:flex" /> Signup
@@ -117,7 +121,10 @@ const Navbar = () => {
         ) : (
           <div className="flex items-center gap-5 ">
             <div>
-              <button className="btn btn-primary" onClick={handleSignOut}>
+              <button
+                className="md:btn md:btn-primary text-primary md:text-white"
+                onClick={handleSignOut}
+              >
                 SignOut
               </button>
             </div>
@@ -127,9 +134,9 @@ const Navbar = () => {
                 data-tooltip-id="my-tooltip"
                 data-tooltip-content={user.displayName}
               >
-                <button>
+                <button className="flex items-center">
                   <img
-                    className="w-11 h-11 rounded-full object-cover z-10"
+                    className="md:w-11 md:h-11 w-8 h-8 rounded-full object-cover z-10"
                     src={user.photoURL}
                     alt=""
                   />

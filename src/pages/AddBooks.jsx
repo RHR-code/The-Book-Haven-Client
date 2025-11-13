@@ -47,7 +47,7 @@ const AddBooks = () => {
     <div className="w-full">
       <div className=" flex flex-col justify-center pt-5 w-11/12 mx-auto  my-10 ">
         <div className="bg-accent  flex flex-col items-center justify-center gap-5 rounded-t-2xl py-10 ">
-          <h2 className="font-black text-5xl text-center text-base-100 leading-tight">
+          <h2 className="font-black text-5xl text-center text-white leading-tight">
             Welcome <br /> Add Your Book!
           </h2>
         </div>

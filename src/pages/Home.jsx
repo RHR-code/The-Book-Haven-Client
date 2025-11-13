@@ -7,6 +7,7 @@ import BookCard from "../components/BookCard";
 import BookOfTheWeek from "../components/BookOfTheWeek";
 import TopGenres from "../components/TopGenres";
 import { FaArrowRight } from "react-icons/fa";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const { data } = useLoaderData();

@@ -39,6 +39,9 @@ const Comment = () => {
   return (
     <div className="mb-20 ">
       <div className="bg-base-200 max-w-3xl mx-auto p-10 border-2 border-secondary rounded-2xl ">
+        <h2 className="text-4xl font-bold text-primary text-center my-10">
+          Leave A Comment
+        </h2>
         <div>
           <form
             onSubmit={handleAddComment}
