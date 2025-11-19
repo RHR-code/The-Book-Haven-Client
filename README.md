@@ -41,7 +41,7 @@ git clone https://github.com/RHR-code/The-Book-Haven-Client.git
 cd The-Book-Haven-Client
 ```
 
-#### Start Webiste:
+#### Start Website:
 
 ```arduino
 npm run dev
