@@ -11,7 +11,6 @@ import Footer from "../components/Footer";
 
 const Home = () => {
   const { data } = useLoaderData();
-  console.log("data", data);
 
   const { user } = use(AuthContext);
 

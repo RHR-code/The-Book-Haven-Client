@@ -8,7 +8,6 @@ import { FcGoogle } from "react-icons/fc";
 const SignIn = () => {
   const { user, userSignIn, setUser, googleSignIn } = use(AuthContext);
   const { state } = useLocation();
-  console.log("from login", state);
 
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
