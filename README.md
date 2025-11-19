@@ -1,15 +1,65 @@
 # The Book Haven
 
-- [Live Website Link](https://the-book-haven-a6401.web.app/)
-- The Ultimate book library
-- You can find all sorts of books
-- You Can Read books
-- Add your favourite books
-- See comments on your books
-- Can give comments to other books
-- Can see how many books you have added
-- You can also update the books
-- If you want you can delete book
+Book Haven is the ultimate library for books.People can read all sorts of book and add any book they like.
+
+### Features
+
+- User can add books
+- User can read books
+- user can update books
+- user can delete books
+- user can add comments
+
+#### Technology Used :
+
+- "@lottiefiles/dotlottie-react": "^0.17.7",
+- "@tailwindcss/vite": "^4.1.17",
+- "axios": "^1.13.2",
+- "daisyui": "^5.4.7",
+- "firebase": "^12.5.0",
+- "lottie-react": "^2.4.1",
+- "react": "^19.1.1",
+- "react-dom": "^19.1.1",
+- "react-hot-toast": "^2.6.0",
+- "react-icons": "^5.5.0",
+- "react-router": "^7.9.5",
+- "react-spinners": "^0.17.0",
+- "react-tooltip": "^5.30.0",
+- "sweetalert2": "^11.26.3",
+- "tailwindcss": "^4.1.17",
+- "typewriter-effect": "^2.22.0"
+
+#### Start the development :
+
+```bash
+git clone https://github.com/RHR-code/The-Book-Haven-Client.git
+```
+
+#### Change Directory:
+
+```arduino
+cd The-Book-Haven-Client
+```
+
+#### Start Webiste:
+
+```arduino
+npm run dev
+```
+
+## 🌈 Screenshots
+
+- **Home Page Banner.**
+
+  ![The-Book-Haven](https://github.com/RHR-code/The-Book-Haven-Client/blob/main/sceenshot/Screenshot%202025-11-19%20153911.png?raw=true)
+
+- **All Book Section.**
+
+  ![The-Book-Haven](https://github.com/RHR-code/The-Book-Haven-Client/blob/main/sceenshot/Screenshot%202025-11-19%20154039.png?raw=true)
+
+---
+
+---
 
 # React + Vite
 
