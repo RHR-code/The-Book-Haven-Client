@@ -1,30 +1,46 @@
 import React, { useEffect, useState } from "react";
 import BookCard from "../components/BookCard";
-import axios from "axios";
-import useAxiosSecure from "../hooks/useAxiosSecure";
+import { useAxiosInstance } from "../hooks/useAxiosInstance";
+import { PropagateLoader } from "react-spinners";
 
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
   const [sort, setSort] = useState("Sort By Rating");
-  const axiosSecure = useAxiosSecure();
+  const [loading, setLoading] = useState(false);
+  const axiosInstance = useAxiosInstance();
   useEffect(() => {
-    axiosSecure.get("/all-books").then((data) => {
-      setBooks(data.data);
-    });
-  }, [axiosSecure]);
+    setLoading(true);
+    axiosInstance
+      .get("/all-books")
+      .then((data) => {
+        setBooks(data.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error.code);
+        setLoading(false);
+      });
+  }, [axiosInstance]);
   useEffect(() => {
     if (sort === "Low To High") {
-      axiosSecure.get("/all-books/sort-low-to-high").then((data) => {
+      axiosInstance.get("/all-books/sort-low-to-high").then((data) => {
         setBooks(data.data);
       });
     } else if (sort === "High To Low") {
-      axiosSecure.get("/all-books/sort-high-to-low").then((data) => {
+      axiosInstance.get("/all-books/sort-high-to-low").then((data) => {
         setBooks(data.data);
       });
     } else {
       setBooks(books);
     }
-  }, [books, sort, axiosSecure]);
+  }, [books, sort, axiosInstance]);
+  if (loading) {
+    return (
+      <div className="w-screen h-screen flex items-center justify-center">
+        <PropagateLoader />
+      </div>
+    );
+  }
   return (
     <div className="my-10">
       <h2 className="text-4xl font-bold text-primary text-center pb-10">

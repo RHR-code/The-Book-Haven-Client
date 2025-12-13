@@ -28,20 +28,12 @@ export const router = createBrowserRouter(
       <Route
         path="all-books"
         // loader={() => instance.get("/all-books")}
-        element={
-          <PrivateRoute>
-            <AllBooks />
-          </PrivateRoute>
-        }
+        element={<AllBooks />}
       />
       <Route
         path="book-details/:id"
         // loader={({ params }) => instance.get(`/book-details/${params.id}`)}
-        element={
-          <PrivateRoute>
-            <BookDetails />
-          </PrivateRoute>
-        }
+        element={<BookDetails />}
       />
       <Route
         path="add-books"

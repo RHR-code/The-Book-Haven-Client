@@ -2,15 +2,17 @@ import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { useParams } from "react-router";
 import Comment from "../components/Comment";
-import useAxiosSecure from "../hooks/useAxiosSecure";
+// import useAxiosSecure from "../hooks/useAxiosSecure";
+import { useAxiosInstance } from "../hooks/useAxiosInstance";
 
 const BookDetails = () => {
   const [data, setData] = useState({});
-  const axiosSecure = useAxiosSecure();
+  // const axiosSecure = useAxiosSecure();
+  const axiosInstance = useAxiosInstance();
 
   const { id } = useParams();
   useEffect(() => {
-    axiosSecure
+    axiosInstance
       .get(`/book-details/${id}`)
       .then((data) => {
         setData(data.data);
@@ -18,7 +20,7 @@ const BookDetails = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [axiosSecure, id]);
+  }, [axiosInstance, id]);
 
   const {
     author,

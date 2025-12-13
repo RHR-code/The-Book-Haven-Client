@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 import { useParams } from "react-router";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 const Comment = () => {
   const { user } = use(AuthContext);
@@ -10,13 +11,18 @@ const Comment = () => {
   const [comment, setComment] = useState([]);
   const axiosSecure = useAxiosSecure();
   useEffect(() => {
-    axiosSecure.get(`/comment/${id}`).then((data) => {
-      setComment(data.data);
-    });
-  }, [id, axiosSecure]);
+    if (user) {
+      axiosSecure.get(`/comment/${id}`).then((data) => {
+        setComment(data.data);
+      });
+    }
+  }, [id, axiosSecure, user]);
 
   const handleAddComment = (e) => {
     e.preventDefault();
+    if (!user) {
+      return toast.error("Your're Not Logged In");
+    }
     const commentText = e.target.comment.value;
     const commentInfo = {
       comment: commentText,
