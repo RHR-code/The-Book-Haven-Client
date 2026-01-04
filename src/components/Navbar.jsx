@@ -19,24 +19,27 @@ const Navbar = () => {
   };
   const links = (
     <>
-      <NavLink to="/" className="font-semibold text-base hover:text-secondary">
+      <NavLink
+        to="/"
+        className="font-semibold text-white text-base hover:text-secondary"
+      >
         <li>Home</li>
       </NavLink>
       <NavLink
         to="/all-Books"
-        className="font-semibold text-base hover:text-secondary"
+        className="font-semibold text-base text-white hover:text-secondary"
       >
         <li>All Books</li>
       </NavLink>
       <NavLink
         to="/add-books"
-        className="font-semibold text-base hover:text-secondary"
+        className="font-semibold text-white text-base hover:text-secondary"
       >
         <li>Add Books</li>
       </NavLink>
       <NavLink
         to="/my-books"
-        className="font-semibold text-base hover:text-secondary"
+        className="font-semibold text-white text-base hover:text-secondary"
       >
         <li>My Books</li>
       </NavLink>
@@ -50,7 +53,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar  bg-base-200 px-5 pt-5 shadow">
+    <div className="sticky top-0 z-50  navbar  bg-primary border-b-2 border-secondary px-5 pt-5 shadow">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="pr-2 lg:hidden">
@@ -77,7 +80,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <Link to="/" className="font-black text-xl md:text-3xl text-primary">
+        <Link to="/" className="font-black text-xl md:text-3xl text-white">
           Books Haven
         </Link>
       </div>
@@ -92,7 +95,7 @@ const Navbar = () => {
               handleTheme(e.target.checked);
             }}
             type="checkbox"
-            className="toggle toggle-success "
+            className="toggle toggle-success border-blue-50 text-secondary"
           />
         </a>
         {!user ? (
@@ -101,8 +104,8 @@ const Navbar = () => {
               to="/signin"
               className={({ isActive }) =>
                 isActive
-                  ? " md:btn btn-primary text-primary md:text-white"
-                  : "md:btn btn-primary btn-outline  "
+                  ? " md:btn btn-secondary text-white md:text-white"
+                  : "md:btn btn-secondary text-white btn-outline  "
               }
             >
               <LuLogIn className="hidden sm:flex" /> Login
@@ -111,8 +114,8 @@ const Navbar = () => {
               to="/signup"
               className={({ isActive }) =>
                 isActive
-                  ? "md:btn btn-primary text-primary md:text-white"
-                  : "md:btn btn-primary btn-outline"
+                  ? "md:btn btn-secondary text-white md:text-white"
+                  : "md:btn btn-secondary text-white btn-outline"
               }
             >
               <IoCreateSharp className="hidden sm:flex" /> Signup

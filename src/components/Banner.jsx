@@ -10,7 +10,7 @@ import animation3 from "../assets/Education edit.json";
 import Lottie from "lottie-react";
 const Banner = () => {
   return (
-    <div className="relative flex justify-between h-[600px] my-10">
+    <div className="relative flex justify-between h-[600px] ">
       <img src={BannerBG} alt="" />
 
       <div className="absolute top-0 flex flex-col-reverse gap-10 md:gap-0 lg:flex-row items-center  w-full h-full  md:p-10 p-5">

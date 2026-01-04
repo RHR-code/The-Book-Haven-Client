@@ -7,7 +7,6 @@
   default: true;
   --color-primary: #1a535c;
   --color-secondary: #4ecdc4;
-  --color-base-100: white;
   --color-base-200: #f7fff7;
 }
 @plugin "daisyui" {
