@@ -8,6 +8,7 @@ import BookOfTheWeek from "../components/BookOfTheWeek";
 import TopGenres from "../components/TopGenres";
 import { FaArrowRight } from "react-icons/fa";
 import Footer from "../components/Footer";
+import NewsletterSection from "../components/NewsLetter";
 
 const Home = () => {
   const { data } = useLoaderData();
@@ -41,6 +42,8 @@ const Home = () => {
       <div className="pb-20">
         <BookOfTheWeek />
       </div>
+      {/* Newsletter */}
+      <NewsletterSection />
       {/* Top Genres */}
       <div className="pb-20">
         <TopGenres />
