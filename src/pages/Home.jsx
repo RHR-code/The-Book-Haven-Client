@@ -9,6 +9,7 @@ import TopGenres from "../components/TopGenres";
 import { FaArrowRight } from "react-icons/fa";
 import Footer from "../components/Footer";
 import NewsletterSection from "../components/NewsLetter";
+import TestimonialsSection from "../components/Testimonials";
 
 const Home = () => {
   const { data } = useLoaderData();
@@ -44,6 +45,8 @@ const Home = () => {
       </div>
       {/* Newsletter */}
       <NewsletterSection />
+      {/* Testimonials */}
+      <TestimonialsSection />
       {/* Top Genres */}
       <div className="pb-20">
         <TopGenres />
