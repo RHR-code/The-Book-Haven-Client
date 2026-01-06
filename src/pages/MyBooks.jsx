@@ -11,10 +11,12 @@ const MyBooks = () => {
   const axiosSecure = useAxiosSecure();
   const [bookInfo, setBookInfo] = useState([]);
   useEffect(() => {
-    axiosSecure.get(`/all-books?email=${user?.email}`).then((data) => {
+    axiosSecure.get(`/my-books?email=${user?.email}`).then((data) => {
       setBookInfo(data.data);
     });
   }, [user, axiosSecure]);
+  console.log("book", bookInfo);
+
   // delete book functionality
   const handleDeleteBook = (id) => {
     Swal.fire({
@@ -163,9 +165,13 @@ const MyBooks = () => {
                   </tr>
                 </tbody>
               ))}
-
               {/* foot */}
             </table>
+            {bookInfo.length === 0 && (
+              <h2 className="text-center text-2xl my-5 text-primary font-semibold">
+                You Haven't Added Any Book
+              </h2>
+            )}
           </div>
         </div>
       </div>

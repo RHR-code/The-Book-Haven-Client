@@ -66,7 +66,7 @@ const AddBooks = () => {
                       type="text"
                       name="title"
                       className="input w-full border-2 border-secondary"
-                      placeholder="Enter Your Name"
+                      placeholder="Enter Book Title"
                       required
                     />
                   </div>
@@ -80,7 +80,7 @@ const AddBooks = () => {
                       type="text"
                       name="author"
                       className="input w-full  border-2 border-secondary"
-                      placeholder="Enter Your Email"
+                      placeholder="Enter Author Name"
                       required
                     />
                   </div>
@@ -96,7 +96,7 @@ const AddBooks = () => {
                       type="text"
                       name="genre"
                       className="input w-full border-2 border-secondary"
-                      placeholder="Enter Your PhotoURL"
+                      placeholder="Enter Genre"
                       required
                     />
                   </div>
@@ -114,7 +114,7 @@ const AddBooks = () => {
                         step="0.1"
                         name="rating"
                         className="input w-full border-2 border-secondary"
-                        placeholder="Enter Your Password"
+                        placeholder="Enter Rating"
                         required
                       />
                     </div>
@@ -128,8 +128,8 @@ const AddBooks = () => {
                 <textarea
                   name="summary"
                   id=""
-                  className="w-full border-2 border-secondary rounded-sm"
-                  placeholder="Write Your Summery"
+                  className="w-full border-2 border-secondary rounded-sm px-3"
+                  placeholder="Write Book Summery"
                   cols="30"
                   rows="3"
                 ></textarea>
@@ -141,7 +141,7 @@ const AddBooks = () => {
                   type="text"
                   name="coverImage"
                   className="input w-full border-2 border-secondary"
-                  placeholder="Enter Your PhotoURL"
+                  placeholder="Enter Book PhotoURL"
                   required
                 />
                 <button className="btn btn-primary mt-4 font-bold text-lg">
