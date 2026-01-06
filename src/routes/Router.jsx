@@ -16,25 +16,18 @@ import BookDetails from "../pages/BookDetails";
 import PrivateRoute from "./PrivateRoute";
 import PageNotFound from "../pages/PageNotFound";
 import instance from "../hooks/useAxiosInstance";
+import DashboardLayout from "../layout/DashboardLayout";
 
 export const router = createBrowserRouter(
-  createRoutesFromElements(
+  createRoutesFromElements([
     <Route to="/" element={<MainLayout />}>
       <Route
         index={true}
         loader={() => instance.get("/latest-books")}
         element={<Home />}
       />
-      <Route
-        path="all-books"
-        // loader={() => instance.get("/all-books")}
-        element={<AllBooks />}
-      />
-      <Route
-        path="book-details/:id"
-        // loader={({ params }) => instance.get(`/book-details/${params.id}`)}
-        element={<BookDetails />}
-      />
+      <Route path="all-books" element={<AllBooks />} />
+      <Route path="book-details/:id" element={<BookDetails />} />
       <Route
         path="add-books"
         element={
@@ -54,6 +47,9 @@ export const router = createBrowserRouter(
       <Route path="signup" element={<Signup />} />
       <Route path="signin" element={<SignIn />} />
       <Route path="/*" element={<PageNotFound />} />
-    </Route>
-  )
+    </Route>,
+    <Route path="/dashboard" element={<DashboardLayout />}>
+      <Route index={true} element={<MyBooks />} />
+    </Route>,
+  ])
 );

@@ -6,15 +6,15 @@ import { NavLink } from "react-router";
 const BookCard = ({ book, ClassName }) => {
   const { _id, title, genre, author, rating, coverImage } = book;
   return (
-    <div className=" rounded-2xl flex flex-col justify-between p-5 bg-secondary  shadow-sm hover:scale-102 transition ease-in-out">
-      <div className="bg-base-100 rounded-2xl">
+    <div className=" rounded-2xl flex flex-col justify-between p-3 bg-secondary  shadow-sm hover:scale-102 transition ease-in-out">
+      <div className="bg-gray-200 rounded-2xl">
         <img
-          className={`${ClassName} mb-5 w-full object-contain  rounded-2xl py-5`}
+          className={`${ClassName} mb-1 w-full object-contain  rounded-2xl py-2`}
           src={coverImage}
           alt=""
         />
       </div>
-      <div className="px-5 flex flex-col gap-5 pb-5 ">
+      <div className="px-5 flex flex-col gap-2 pb-5 ">
         <h2 className="text-lg font-bold pt-5 line-clamp-1">{title}</h2>
         <p className="font-bold space-x-1">
           {" "}

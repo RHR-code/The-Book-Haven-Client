@@ -100,10 +100,7 @@ export default function TestimonialsSection() {
 
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2
-            className="text-3xl md:text-4xl text-primary font-bold mb-3"
-            // style={{ color: "#1a535c" }}
-          >
+          <h2 className="text-3xl md:text-4xl text-primary font-bold mb-3">
             What Our Readers Say
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -128,11 +125,8 @@ export default function TestimonialsSection() {
           >
             {testimonials.map((testimonial) => (
               <SwiperSlide key={testimonial.id}>
-                <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 max-w-4xl mx-auto relative">
-                  <FaQuoteLeft
-                    className="text-5xl mb-6 opacity-20"
-                    style={{ color: "#4ecdc4" }}
-                  />
+                <div className="bg-secondary rounded-2xl shadow-lg p-8 md:p-12 max-w-4xl mx-auto relative">
+                  <FaQuoteLeft className="text-5xl mb-6 opacity-20 text-primary" />
 
                   <div className="flex flex-col items-center text-center">
                     <img
@@ -146,8 +140,7 @@ export default function TestimonialsSection() {
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <FaStar
                           key={i}
-                          className="text-xl"
-                          style={{ color: "#4ecdc4" }}
+                          className="text-xl text-yellow-600    "
                         />
                       ))}
                     </div>

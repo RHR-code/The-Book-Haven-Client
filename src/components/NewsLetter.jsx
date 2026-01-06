@@ -18,17 +18,11 @@ export default function NewsletterSection() {
   };
 
   return (
-    <section
-      className="w-full py-16 px-4 "
-      style={{ backgroundColor: "#1a535c" }}
-    >
+    <section className="w-full py-16 px-4 bg-primary">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
-          <div
-            className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4"
-            style={{ backgroundColor: "#4ecdc4" }}
-          >
-            <FaBook className="text-3xl" style={{ color: "#1a535c" }} />
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 bg-secondary">
+            <FaBook className="text-3xl bg-secondary " />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
             Stay Updated with Book Haven
@@ -55,8 +49,7 @@ export default function NewsletterSection() {
               </div>
               <button
                 type="submit"
-                className="px-8 py-4 rounded-lg font-semibold text-white transition-all duration-300 hover:shadow-lg hover:scale-105"
-                style={{ backgroundColor: "#4ecdc4" }}
+                className="px-8 py-4 rounded-lg font-semibold text-white transition-all duration-300 hover:shadow-lg hover:scale-105 bg-secondary"
               >
                 Subscribe
               </button>
@@ -69,14 +62,8 @@ export default function NewsletterSection() {
         ) : (
           <div className="max-w-xl mx-auto text-center">
             <div className="bg-white rounded-lg p-8 shadow-lg">
-              <MdCheckCircle
-                className="text-6xl mx-auto mb-4"
-                style={{ color: "#4ecdc4" }}
-              />
-              <h3
-                className="text-2xl font-bold mb-2"
-                style={{ color: "#1a535c" }}
-              >
+              <MdCheckCircle className="text-6xl mx-auto mb-4 text-secondary" />
+              <h3 className="text-2xl font-bold mb-2 text-secondary">
                 Successfully Subscribed!
               </h3>
               <p className="text-gray-600">
@@ -89,28 +76,17 @@ export default function NewsletterSection() {
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <div className="text-white">
-            <div
-              className="text-3xl font-bold mb-1"
-              style={{ color: "#4ecdc4" }}
-            >
-              Weekly
-            </div>
+            <div className="text-3xl font-bold mb-1 text-secondary">Weekly</div>
             <p className="text-sm text-gray-200">Book Recommendations</p>
           </div>
           <div className="text-white">
-            <div
-              className="text-3xl font-bold mb-1"
-              style={{ color: "#4ecdc4" }}
-            >
+            <div className="text-3xl font-bold mb-1 text-secondary">
               Exclusive
             </div>
             <p className="text-sm text-gray-200">Author Interviews</p>
           </div>
           <div className="text-white">
-            <div
-              className="text-3xl font-bold mb-1"
-              style={{ color: "#4ecdc4" }}
-            >
+            <div className="text-3xl font-bold mb-1 text-secondary">
               Early Access
             </div>
             <p className="text-sm text-gray-200">To New Features</p>

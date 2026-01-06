@@ -9,9 +9,9 @@ import { Tooltip } from "react-tooltip";
 
 const Footer = () => {
   return (
-    <footer className="bg-base-200 py-20  flex flex-col gap-10  p-10 border-t-2 border-gray-300 ">
-      <a className="font-black text-xl md:text-3xl text-primary">Books Haven</a>
-      <div className="footer sm:footer-horizontal  text-base-content">
+    <footer className="bg-primary  py-20  flex flex-col gap-10  p-10 border-t-2 border-secondary">
+      <a className="font-black text-xl md:text-3xl text-white">Books Haven</a>
+      <div className="footer sm:footer-horizontal  text-white">
         <nav>
           <h6 className="footer-title">Contact Info</h6>
           <a className="link link-hover">bookhaven@gmail.com</a>
@@ -51,7 +51,7 @@ const Footer = () => {
           <Tooltip place="top-end" id="my-tooltip" />
         </nav>
       </div>
-      <aside className="text-center">
+      <aside className="text-center text-white">
         <p>
           Copyright © {new Date().getFullYear()} - All right reserved by RHR
           Industries Ltd

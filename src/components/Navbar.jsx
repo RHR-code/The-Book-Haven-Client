@@ -125,7 +125,7 @@ const Navbar = () => {
           <div className="flex items-center gap-5 ">
             <div>
               <button
-                className="md:btn md:btn-primary text-primary md:text-white"
+                className="md:btn md:btn-secondary text-primary md:text-white"
                 onClick={handleSignOut}
               >
                 SignOut

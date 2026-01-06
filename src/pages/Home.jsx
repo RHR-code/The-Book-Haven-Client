@@ -11,6 +11,8 @@ import Footer from "../components/Footer";
 import NewsletterSection from "../components/NewsLetter";
 import TestimonialsSection from "../components/Testimonials";
 import Statistics from "../components/Statistics";
+import FAQSection from "../components/FAQ";
+import ServicesSection from "../components/Services";
 
 const Home = () => {
   const { data } = useLoaderData();
@@ -50,6 +52,10 @@ const Home = () => {
       <TestimonialsSection />
       {/* Statistics */}
       <Statistics />
+      {/* FAQ */}
+      <FAQSection />
+      {/* Services */}
+      <ServicesSection />
       {/* Top Genres */}
       <div className="pb-20">
         <TopGenres />
