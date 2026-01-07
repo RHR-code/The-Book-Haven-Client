@@ -1,8 +1,12 @@
-import React from "react";
-import { Outlet } from "react-router";
+import React, { use } from "react";
+import { Link, NavLink, Outlet } from "react-router";
 import { FaHome, FaCog, FaBook, FaBell, FaUser } from "react-icons/fa";
+import ProfileLogo from "../components/ProfileLogo";
+import { AuthContext } from "../context/AuthContext";
+import { FaBookAtlas, FaBookBible, FaBookBookmark } from "react-icons/fa6";
 
 const DashboardLayout = () => {
+  const { user } = use(AuthContext);
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -16,7 +20,7 @@ const DashboardLayout = () => {
             <label
               htmlFor="my-drawer-4"
               aria-label="open sidebar"
-              className="btn btn-square btn-ghost text-white hover:bg-white hover:bg-opacity-20"
+              className="btn btn-square btn-ghost text-white hover:bg-secondary hover:bg-opacity-20"
             >
               {/* Sidebar toggle icon */}
               <svg
@@ -35,20 +39,15 @@ const DashboardLayout = () => {
               </svg>
             </label>
             <div className="flex-1 px-4 flex items-center gap-3">
-              <FaBook className="text-2xl" style={{ color: "#4ecdc4" }} />
-              <span className="text-xl font-bold text-white">Book Haven</span>
+              <FaUser className="text-2xl" style={{ color: "#4ecdc4" }} />
+              <span className="text-xl font-bold text-white">
+                User Dashboard
+              </span>
             </div>
-            <div className="flex-none gap-2">
-              {/* Notifications */}
-              <button className="btn btn-ghost btn-circle text-white hover:bg-white hover:bg-opacity-20">
-                <div className="indicator">
-                  <FaBell className="text-xl" />
-                  <span className="badge badge-xs badge-error indicator-item"></span>
-                </div>
-              </button>
+            <div className="flex-none gap-2 mr-10">
               {/* Profile */}
               <div className="dropdown dropdown-end">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                {/* <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div
                     className="w-10 rounded-full ring-2 ring-offset-2"
                     style={{ ringColor: "#4ecdc4" }}
@@ -58,7 +57,8 @@ const DashboardLayout = () => {
                       alt="User"
                     />
                   </div>
-                </label>
+                </label> */}
+                <ProfileLogo />
               </div>
             </div>
           </nav>
@@ -78,30 +78,51 @@ const DashboardLayout = () => {
           >
             {/* Logo Section */}
             <div className="w-full p-6 border-b border-white border-opacity-20">
-              <div className="flex items-center gap-3">
+              <Link to="/" className="flex items-center gap-3">
                 <FaBook
                   className="text-3xl flex-shrink-0"
                   style={{ color: "#4ecdc4" }}
                 />
-                <span className="is-drawer-close:hidden text-xl font-bold text-white">
+                <div className="is-drawer-close:hidden text-xl font-bold text-white">
                   Book Haven
-                </span>
-              </div>
+                </div>
+              </Link>
             </div>
 
             {/* Sidebar content here */}
             <ul className="menu w-full grow p-4 space-y-2">
               {/* Homepage */}
               <li>
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right  hover:bg-gray-400 rounded-lg transition-all group"
-                  data-tip="Homepage"
+                <NavLink
+                  to="/dashboard/my-books"
+                  className={({ isActive }) =>
+                    ` ${
+                      isActive ? "bg-secondary" : "bg-transparent"
+                    } is-drawer-close:tooltip is-drawer-close:tooltip-right  hover:bg-gray-400 rounded-lg transition-all group`
+                  }
+                  data-tip="Your Books"
                 >
-                  <FaHome className="text-xl flex-shrink-0 text-secondary" />
+                  <FaBookBookmark className="text-xl flex-shrink-0 text-white" />
                   <span className="is-drawer-close:hidden text-white font-medium group-hover:translate-x-1 transition-transform ">
-                    Homepage
+                    Your Books
                   </span>
-                </button>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/dashboard/add-books"
+                  className={({ isActive }) =>
+                    ` ${
+                      isActive ? "bg-secondary" : ""
+                    } is-drawer-close:tooltip is-drawer-close:tooltip-right  hover:bg-gray-400 rounded-lg transition-all group`
+                  }
+                  data-tip="Add Books"
+                >
+                  <FaBookBookmark className="text-xl flex-shrink-0 text-white" />
+                  <span className="is-drawer-close:hidden text-white font-medium group-hover:translate-x-1 transition-transform ">
+                    Add Books
+                  </span>
+                </NavLink>
               </li>
 
               {/* Settings */}
@@ -129,15 +150,16 @@ const DashboardLayout = () => {
                     className="w-10 rounded-full ring-2"
                     style={{ ringColor: "#4ecdc4" }}
                   >
-                    <img
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop"
-                      alt="User"
-                    />
+                    <ProfileLogo />
                   </div>
                 </div>
                 <div className="is-drawer-close:hidden">
-                  <p className="text-white font-semibold text-sm">John Doe</p>
-                  <p className="text-gray-300 text-xs">john@bookhaven.com</p>
+                  <p className="text-white font-semibold text-sm">
+                    {user ? user?.displayName : "User Name"}
+                  </p>
+                  <p className="text-gray-300 text-xs">
+                    {user ? user?.email : "User Email"}
+                  </p>
                 </div>
               </div>
             </div>

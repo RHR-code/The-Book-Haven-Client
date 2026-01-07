@@ -105,8 +105,8 @@ const MyBooks = () => {
   };
   return (
     <>
-      <div className="px-10 my-20">
-        <h1 className="font-bold text-4xl text-center py-10 text-primary">
+      <div className="px-10">
+        <h1 className="font-bold text-4xl text-center py-5 text-primary">
           All My Books
         </h1>
         <div>
@@ -125,7 +125,7 @@ const MyBooks = () => {
               {bookInfo.map((book, index) => (
                 <tbody key={book._id} className="font-semibold">
                   {/* row 1 */}
-                  <tr className="border-2 border-secondary bg-secondary/20 ">
+                  <tr className="border-2 border-secondary bg-secondary/80">
                     <th>
                       <label>
                         <img className="h-20" src={book.coverImage} alt="" />
@@ -150,13 +150,13 @@ const MyBooks = () => {
                       <div className="flex flex-col gap-2">
                         <button
                           onClick={() => handleDeleteBook(book._id)}
-                          className="badge badge-outline badge-error hover:badge-soft cursor-pointer w-30"
+                          className="btn bg-red-500 rounded-full text-white hover:scale-105 ease-in-out cursor-pointer w-40"
                         >
                           Delete Book
                         </button>
                         <button
                           onClick={() => handleUpdateBookBtn(book._id)}
-                          className="badge badge-outline badge-success hover:badge-soft cursor-pointer w-30 "
+                          className="btn btn-primary rounded-full text-sm cursor-pointer w-40 "
                         >
                           Update Book
                         </button>
@@ -167,6 +167,7 @@ const MyBooks = () => {
               ))}
               {/* foot */}
             </table>
+
             {bookInfo.length === 0 && (
               <h2 className="text-center text-2xl my-5 text-primary font-semibold">
                 You Haven't Added Any Book

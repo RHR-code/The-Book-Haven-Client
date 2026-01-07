@@ -6,6 +6,7 @@ import { IoCreateSharp } from "react-icons/io5";
 import { AuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
 import { Tooltip } from "react-tooltip";
+import ProfileLogo from "./ProfileLogo";
 const Navbar = () => {
   const { user, userSignOut } = use(AuthContext);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -32,6 +33,26 @@ const Navbar = () => {
         <li>All Books</li>
       </NavLink>
       <NavLink
+        to="/about-us"
+        className="font-semibold text-base text-white hover:text-secondary"
+      >
+        <li>About Us</li>
+      </NavLink>
+      <NavLink
+        to="/contact-us"
+        className="font-semibold text-base text-white hover:text-secondary"
+      >
+        <li>Contact Us</li>
+      </NavLink>
+      {user && (
+        <NavLink
+          to="/dashboard/my-books"
+          className="font-semibold text-base text-white hover:text-secondary"
+        >
+          <li>Dashboard</li>
+        </NavLink>
+      )}
+      {/* <NavLink
         to="/add-books"
         className="font-semibold text-white text-base hover:text-secondary"
       >
@@ -42,7 +63,7 @@ const Navbar = () => {
         className="font-semibold text-white text-base hover:text-secondary"
       >
         <li>My Books</li>
-      </NavLink>
+      </NavLink> */}
     </>
   );
 
@@ -125,28 +146,14 @@ const Navbar = () => {
           <div className="flex items-center gap-5 ">
             <div>
               <button
-                className="md:btn md:btn-secondary text-primary md:text-white"
+                className="md:btn md:btn-secondary text-secondary md:text-white"
                 onClick={handleSignOut}
               >
                 SignOut
               </button>
             </div>
 
-            <div className="relative flex items-center">
-              <a
-                data-tooltip-id="my-tooltip"
-                data-tooltip-content={user.displayName}
-              >
-                <button className="flex items-center">
-                  <img
-                    className="md:w-11 md:h-11 w-8 h-8 rounded-full object-cover z-10"
-                    src={user.photoURL}
-                    alt=""
-                  />
-                </button>
-              </a>
-              <Tooltip place="top-end" id="my-tooltip" />
-            </div>
+            <ProfileLogo />
           </div>
         )}
       </div>
