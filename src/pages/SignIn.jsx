@@ -1,14 +1,14 @@
-import React, { use, useState } from "react";
+import React, { use, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { FaEye, FaRegEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
+import { useFormState } from "react-dom";
 
 const SignIn = () => {
-  const { user, userSignIn, setUser, googleSignIn } = use(AuthContext);
+  const { user, userSignIn, setUser, googleSignIn, loading } = use(AuthContext);
   const { state } = useLocation();
-
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
 
@@ -39,6 +39,20 @@ const SignIn = () => {
         toast.error(err.code);
       });
   };
+  const formRef = useRef();
+  const handleDemoUser = () => {
+    formRef.current.email.value = "first@gmail.com";
+    formRef.current.password.value = "123asD";
+    userSignIn("first@gmail.com", "123asD")
+      .then((res) => {
+        setUser(res.user);
+        navigate(state ? state : "/");
+        toast.success("Logged In Successfully");
+      })
+      .catch((err) => {
+        toast.error(err.code);
+      });
+  };
   return (
     <div className="w-full">
       <div className=" flex flex-col md:flex-row justify-center pt-5 w-11/12 mx-auto  my-10 gap-5 md:gap-0">
@@ -58,7 +72,7 @@ const SignIn = () => {
             <h1 className="text-secondary font-bold text-4xl text-center">
               User LogIn
             </h1>
-            <form onSubmit={handleSignIn}>
+            <form ref={formRef} onSubmit={handleSignIn}>
               <fieldset className="fieldset flex flex-col gap-5">
                 <label className="label text-secondary text-xl font-semibold">
                   Email
@@ -96,6 +110,13 @@ const SignIn = () => {
                 <p className="italic">Forget Password?</p>
                 <button className="btn btn-primary mt-4 font-bold text-lg">
                   LogIn
+                </button>
+                <button
+                  type="button"
+                  onClick={handleDemoUser}
+                  className="btn btn-primary  font-bold text-lg"
+                >
+                  {loading ? "LogIn As A Demo User..." : "LogIn As A Demo User"}
                 </button>
                 <button
                   type="button"

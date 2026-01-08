@@ -1,11 +1,12 @@
 import React, { use } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Tooltip } from "react-tooltip";
+import { Link } from "react-router";
 
 const ProfileLogo = () => {
   const { user } = use(AuthContext);
   return (
-    <div>
+    <Link to="/dashboard/profile-page">
       <div className="relative flex items-center">
         <a
           data-tooltip-id="my-tooltip"
@@ -21,7 +22,7 @@ const ProfileLogo = () => {
         </a>
         <Tooltip place="top-end" id="my-tooltip" />
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -1,6 +1,13 @@
 import React, { use } from "react";
 import { Link, NavLink, Outlet } from "react-router";
-import { FaHome, FaCog, FaBook, FaBell, FaUser } from "react-icons/fa";
+import {
+  FaHome,
+  FaCog,
+  FaBook,
+  FaBell,
+  FaUser,
+  FaUserAlt,
+} from "react-icons/fa";
 import ProfileLogo from "../components/ProfileLogo";
 import { AuthContext } from "../context/AuthContext";
 import { FaBookAtlas, FaBookBible, FaBookBookmark } from "react-icons/fa6";
@@ -108,6 +115,7 @@ const DashboardLayout = () => {
                   </span>
                 </NavLink>
               </li>
+              {/* Add Books */}
               <li>
                 <NavLink
                   to="/dashboard/add-books"
@@ -124,27 +132,28 @@ const DashboardLayout = () => {
                   </span>
                 </NavLink>
               </li>
-
-              {/* Settings */}
+              {/* Profile */}
               <li>
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right hover:bg-gray-400 rounded-lg transition-all group"
-                  data-tip="Settings"
+                <NavLink
+                  to="/dashboard/profile-page"
+                  className={({ isActive }) =>
+                    ` ${
+                      isActive ? "bg-secondary" : ""
+                    } is-drawer-close:tooltip is-drawer-close:tooltip-right  hover:bg-gray-400 rounded-lg transition-all group`
+                  }
+                  data-tip="Profile"
                 >
-                  <FaCog
-                    className="text-xl flex-shrink-0"
-                    style={{ color: "#4ecdc4" }}
-                  />
-                  <span className="is-drawer-close:hidden text-white font-medium group-hover:translate-x-1 transition-transform">
-                    Settings
+                  <FaUserAlt className="text-xl flex-shrink-0 text-white" />
+                  <span className="is-drawer-close:hidden text-white font-medium group-hover:translate-x-1 transition-transform ">
+                    Profile
                   </span>
-                </button>
+                </NavLink>
               </li>
             </ul>
 
             {/* User Info at Bottom */}
             <div className="w-full p-4 border-t border-white border-opacity-20">
-              <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all cursor-pointer">
+              <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary hover:bg-opacity-10 transition-all cursor-pointer">
                 <div className="avatar">
                   <div
                     className="w-10 rounded-full ring-2"

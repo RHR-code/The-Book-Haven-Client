@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 import { TbListDetails } from "react-icons/tb";
 import { NavLink } from "react-router";
 
-const BookCard = ({ book, ClassName }) => {
+const BookCard = ({ book, ClassName, pt }) => {
   const { _id, title, genre, author, rating, coverImage } = book;
   return (
     <div className=" rounded-2xl flex flex-col justify-between p-3 bg-secondary  shadow-sm hover:scale-102 transition ease-in-out">
@@ -15,8 +15,8 @@ const BookCard = ({ book, ClassName }) => {
         />
       </div>
       <div className="px-5 flex flex-col gap-2 pb-5 ">
-        <h2 className="text-lg font-bold pt-5 line-clamp-1">{title}</h2>
-        <p className="font-bold space-x-1">
+        <h2 className={`text-lg font-bold ${pt} line-clamp-1`}>{title}</h2>
+        <p className="font-bold line-clamp-1 space-x-1">
           {" "}
           {genre.split("/").map((gen, index) => (
             <span key={index} className="badge badge-outline badge-primary">
@@ -30,7 +30,7 @@ const BookCard = ({ book, ClassName }) => {
             {" "}
             {rating} <FaStar fill="#f7a202" />
           </p>
-          <p> {author}</p>
+          <p className="line-clamp-1"> {author}</p>
         </div>
         <NavLink to={`/book-details/${_id}`} className="btn btn-primary">
           <TbListDetails /> View Details

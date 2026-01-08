@@ -19,6 +19,7 @@ import instance from "../hooks/useAxiosInstance";
 import DashboardLayout from "../layout/DashboardLayout";
 import AboutUs from "../pages/AboutUs";
 import ContactUs from "../pages/ContactUs";
+import ProfilePage from "../pages/ProfilePage";
 
 export const router = createBrowserRouter(
   createRoutesFromElements([
@@ -63,6 +64,7 @@ export const router = createBrowserRouter(
       <Route index={true} element={<MyBooks />} />
       <Route path="my-books" element={<MyBooks />} />
       <Route path="add-books" element={<AddBooks />} />
+      <Route path="profile-page" element={<ProfilePage />} />
     </Route>,
   ])
 );

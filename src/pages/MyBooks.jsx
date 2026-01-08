@@ -5,9 +5,14 @@ import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import UpdateModal from "../components/UpdateModal";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { useAxiosInstance } from "../hooks/useAxiosInstance";
+import Chart from "../components/Chart";
 
 const MyBooks = () => {
   const { user } = use(AuthContext);
+  console.log(user);
+
+  const [books, setBooks] = useState([]);
   const axiosSecure = useAxiosSecure();
   const [bookInfo, setBookInfo] = useState([]);
   useEffect(() => {
@@ -16,6 +21,18 @@ const MyBooks = () => {
     });
   }, [user, axiosSecure]);
   console.log("book", bookInfo);
+  const axiosInstance = useAxiosInstance();
+  useEffect(() => {
+    axiosInstance
+      .get(`/all-books`)
+      .then((data) => {
+        setBooks(data.data);
+      })
+      .catch((error) => {
+        console.log(error.code);
+      });
+  }, [axiosInstance]);
+  console.log(books);
 
   // delete book functionality
   const handleDeleteBook = (id) => {
@@ -309,6 +326,7 @@ const MyBooks = () => {
             </div>
           </div>
         </dialog>
+        <Chart bookInfo={books} />
       </div>
     </>
   );

@@ -33,7 +33,12 @@ const Home = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-5 md:px-10 pb-20">
           {data.map((book) => (
-            <BookCard key={book._id} book={book} ClassName="h-[200px]" />
+            <BookCard
+              key={book._id}
+              book={book}
+              ClassName="h-[200px]"
+              pt="pt-5"
+            />
           ))}
         </div>
         <div className="flex justify-center">
