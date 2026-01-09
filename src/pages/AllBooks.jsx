@@ -13,7 +13,7 @@ const AllBooks = () => {
   const axiosInstance = useAxiosInstance();
   const [currentPage, setCurrentPage] = useState(0);
   const [category, setCategory] = useState("");
-  console.log(currentPage);
+
   const cat = [
     "All",
     "Fantasy",
@@ -46,7 +46,7 @@ const AllBooks = () => {
       <h2 className="text-4xl font-bold text-primary text-center pb-10">
         All Available Books
       </h2>
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col md:flex-row ">
         <div className="lg:w-2/12 md:3/12  flex md:flex-col items-center flex-wrap  gap-5 mx-2 border-transparent md:border-r-2 md:border-primary pr-5">
           <h2 className="text-center text-primary my-5 font-bold text-base lg:text-xl">
             Filter By Category
@@ -58,7 +58,9 @@ const AllBooks = () => {
                 item !== "All" ? setCategory(item) : setCategory("")
               }
               className={`md:btn btn-primary md:w-full ${
-                item === category ? "btn-primary" : "btn-outline"
+                item === category
+                  ? "btn-primary text-primary md:text-white"
+                  : "btn-outline"
               }`}
             >
               {item}
@@ -67,7 +69,7 @@ const AllBooks = () => {
         </div>
 
         <div className="lg:w-10/12 md:w-9/12 ">
-          <div className=" flex  justify-between my-5 mx-5">
+          <div className=" flex  justify-between my-5 gap-3 md:gap-0 mx-5">
             <input
               type="search"
               onChange={(e) => setSearchText(e.target.value)}
@@ -107,7 +109,7 @@ const AllBooks = () => {
         </div>
       </div>
       {/* pagination */}
-      <div className="flex justify-center gap-5 mt-10">
+      <div className="flex flex-wrap px-3 justify-center gap-5 mt-10">
         {[...Array(8)].map((_, i) => (
           <button
             onClick={() => setCurrentPage(i)}

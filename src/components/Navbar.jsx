@@ -22,32 +22,32 @@ const Navbar = () => {
     <>
       <NavLink
         to="/"
-        className="font-semibold text-white text-base hover:text-secondary"
+        className="font-semibold lg:text-white text-base hover:text-secondary"
       >
         <li>Home</li>
       </NavLink>
       <NavLink
         to="/all-Books"
-        className="font-semibold text-base text-white hover:text-secondary"
+        className="font-semibold text-base lg:text-white hover:text-secondary"
       >
         <li>All Books</li>
       </NavLink>
       <NavLink
         to="/about-us"
-        className="font-semibold text-base text-white hover:text-secondary"
+        className="font-semibold text-base lg:text-white hover:text-secondary"
       >
         <li>About Us</li>
       </NavLink>
       <NavLink
         to="/contact-us"
-        className="font-semibold text-base text-white hover:text-secondary"
+        className="font-semibold text-base lg:text-white hover:text-secondary"
       >
         <li>Contact Us</li>
       </NavLink>
       {user && (
         <NavLink
           to="/dashboard/my-books"
-          className="font-semibold text-base text-white hover:text-secondary"
+          className="font-semibold text-base lg:text-white hover:text-secondary"
         >
           <li>Dashboard</li>
         </NavLink>
