@@ -34,7 +34,10 @@ const Banner = () => {
             <Link to="/all-books" className="btn btn-primary  font-bold ">
               All Books <FaArrowRight />
             </Link>
-            <Link to="/add-books" className="btn btn-primary font-bold">
+            <Link
+              to="/dashboard/add-books"
+              className="btn btn-primary font-bold"
+            >
               Create Books <FaArrowRight />
             </Link>
           </div>
