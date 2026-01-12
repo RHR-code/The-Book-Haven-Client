@@ -1,57 +1,48 @@
-# LoanLink
+# The Book Haven
 
-LoanLink is a modern loan management web application that allows users to explore loan options, apply online, and securely complete payments. The platform includes role-based dashboards for users and admins, real-time loan status updates, and a responsive, user-friendly interface built with React, Tailwind CSS, and modern web technologies.
+Book Haven is the ultimate library for books.People can read all sorts of book and add any book they like.
 
-[Live Website Link](https://loanlink-e1e14.web.app/)
+[Live Website Link](https://the-book-haven-a6401.web.app/)
 
 ### Features
 
-- Browse and view detailed loan options
-
-- Online loan application with real-time status tracking
-
-- Secure payment integration with transaction history
-
-- Admin dashboard to manage loans, applications, and homepage visibility
-
-- Popular loan selection with toggle control
-
-- Responsive UI built with React and Tailwind CSS
-
+- User can add books
+- User can read books
+- user can update books
+- user can delete books
+- user can add comments
 - Smooth animations using Framer Motion
-
 - RESTful API with secure data handling
 
 #### Technology Used :
 
+- "@lottiefiles/dotlottie-react": "^0.17.7",
 - "@tailwindcss/vite": "^4.1.17",
-- "@tanstack/react-query": "^5.90.12",
 - "axios": "^1.13.2",
-- "firebase": "^12.6.0",
-- "framer-motion": "^12.23.26",
-- "react": "^19.2.0",
-- "react-confetti": "^6.4.0",
-- "react-dom": "^19.2.0",
-- "react-hook-form": "^7.68.0",
+- "daisyui": "^5.4.7",
+- "firebase": "^12.5.0",
+- "lottie-react": "^2.4.1",
+- "react": "^19.1.1",
+- "react-dom": "^19.1.1",
 - "react-hot-toast": "^2.6.0",
 - "react-icons": "^5.5.0",
-- "react-loader-spinner": "^8.0.0",
-- "react-router": "^7.10.1",
-- "react-slick": "^0.31.0",
-- "slick-carousel": "^1.8.1",
-- "sweetalert2": "^11.26.4",
-- "tailwindcss": "^4.1.17"
+- "react-router": "^7.9.5",
+- "react-spinners": "^0.17.0",
+- "react-tooltip": "^5.30.0",
+- "sweetalert2": "^11.26.3",
+- "tailwindcss": "^4.1.17",
+- "typewriter-effect": "^2.22.0
 
 #### Start the development :
 
 ```bash
-git clone https://github.com/RHR-code/LoanLink.git
+git clone https://github.com/RHR-code/The-Book-Haven-Client.git
 ```
 
 #### Change Directory:
 
 ```arduino
-cd LoanLink
+cd The-Book-Haven-Client
 ```
 
 #### Start Website:
